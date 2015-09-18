@@ -19,3 +19,10 @@ Feature: Authentication
     When I login with email "x@example.com", password "!723dckx"
     Then I should see "Invalid email or password."
     And I should not be logged in
+
+  Scenario: A user should be able to log out
+    Given I am logged in as a normal user
+    Given save_and_open_page
+    When I logout
+    Then I should not be logged in
+    Then save_and_open_page
